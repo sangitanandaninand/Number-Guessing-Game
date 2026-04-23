@@ -1,19 +1,19 @@
 #include <iostream>
 #include <cstdlib>
-#include <ctime
+#include <ctime>
 #include "Game.h"
 
 using namespace std;
 
 Game:Game() {
-    tries = 0;
+    tries = 0; // Set tries to 0
 }
 void Game::generateNumber() {
     secretNumber = rand() % 100 + 1;
 }
 void Game:: startGame() {
-    strand(time());
-    generateNumber();
+    strand(time(0)); //Start the random number generator
+    generateNumber(); // Generating a brand new secret number
 
     int guess;
 
@@ -27,12 +27,12 @@ void Game:: startGame() {
         if (guess > secretNumber) {
         cout << "Too high!" << endl;
         } 
-        else if ( guess < secretNUmber) {
+        else if ( guess < secretNumber) {
             cout << "Too low !" << endl;
         }
         else {
             cout << "Correct!" << endl;
-            cout << "You guessed in" << tries << "tries." << endl;
+            cout << "You guessed it in" << tries << "tries." << endl;
         
         }      
             
