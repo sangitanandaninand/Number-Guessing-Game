@@ -9,8 +9,8 @@ enable_testing()
 
 # Create libary from your class implementations
 # (uncomment and add files as you create them)
-# add_library(recipe_lib
-#     src/Recipe.cpp
+# add_library(Game.cpp.cpp
+#     src/Game.cpp.cpp
 #     src/Game.cpp.cpp
 )
 
