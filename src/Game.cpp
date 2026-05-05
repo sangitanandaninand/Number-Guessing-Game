@@ -5,37 +5,51 @@
 
 using namespace std;
 
-Game:Game() {
-    tries = 0; // Set tries to 0
+// Constructor
+Game::Game() {
+    tries = 0;
 }
-void Game::generateNumber() {
-    secretNumber = rand() % 100 + 1;
-}
-void Game:: startGame() {
-    strand(time(0)); //Start the random number generator
-    generateNumber(); // Generating a brand new secret number
+
+// Main game function
+void Game::startGame() {
+    srand(time(0)); // set random seed
+    secretNumber = rand() % 100 + 1; // number 1–100
+    tries = 0;
 
     int guess;
 
-    cout << "Welcome to the game of Number Guessing!" << endl;
-    cout << "Guess a number between 1 and 10:" << endl;
+    cout << "Welcome to the Number Guessing Game!" << endl;
+    cout << "Guess a number between 1 and 100:" << endl;
 
-    while (guess != secretNumber) {
+    while (true) {
         cin >> guess;
         tries++;
 
         if (guess > secretNumber) {
-        cout << "Too high!" << endl;
-        } 
-        else if ( guess < secretNumber) {
-            cout << "Too low !" << endl;
+            cout << "Too high!" << endl;
+        }
+        else if (guess < secretNumber) {
+            cout << "Too low!" << endl;
         }
         else {
-            cout << "Correct!" << endl;
-            cout << "You guessed it in" << tries << "tries." << endl;
-        
-        }      
-            
+            cout << "Correct! You guessed it in " << tries << " tries." << endl;
+
+            char choice;
+            cout << "Do you want to play again? (y/n): ";
+            cin >> choice;
+
+            if (choice == 'y' || choice == 'Y') {
+                startGame(); // restart game
+            } else {
+                cout << "Thanks for playing!" << endl;
+            }
+
+            break;
+        }
     }
 }
+
+
+
+
 
