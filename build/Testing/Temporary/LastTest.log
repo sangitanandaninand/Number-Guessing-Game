@@ -1,0 +1,23 @@
+Start testing: May 13 05:50 UTC
+----------------------------------------------------------
+1/1 Testing: FeatureTests
+1/1 Test: FeatureTests
+Command: "/workspaces/Number-Guessing-Game/build/test_main"
+Directory: /workspaces/Number-Guessing-Game/build
+"FeatureTests" start time: May 13 05:50 UTC
+Output:
+----------------------------------------------------------
+Running tests...
+test_add_player PASSED
+test_better_score PASSED
+test_worse_score_ignored PASSED
+All tests passed.
+<end of output>
+Test time =   0.00 sec
+----------------------------------------------------------
+Test Passed.
+"FeatureTests" end time: May 13 05:50 UTC
+"FeatureTests" time elapsed: 00:00:00
+----------------------------------------------------------
+
+End testing: May 13 05:50 UTC

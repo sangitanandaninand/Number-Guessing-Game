@@ -1,12 +1,8 @@
-#pragma once
+#include "Leaderboard.h"
 
 class Game {
 private:
-int secretNumber; 
-int tries; 
-
-public:
-Game();
-void startGame();
-
+    Leaderboard leaderboard;
+    int tries;
+    int secretNumber;
 };

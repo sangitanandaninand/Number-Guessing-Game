@@ -1,0 +1,45 @@
+Part 1:
+1. Starting the Initial Feature
+You uploaded the CIS 25 Initial Feature PDF multiple times.
+We discussed breaking it down at a student level, step by step.
+I explained the purpose of choosing one feature, and you chose “Play Again.”
+2. Git Branch Setup
+Step 2: Create a feature branch:
+git checkout -b feature/play-again
+We confirmed you did this successfully.
+I explained the importance of not committing directly to main.
+3. Stubbing Functions
+Step 3: Make sure all declared functions in Game.h had stub implementations in Game.cpp.
+We went through your code, fixed your headers and startGame() stub.
+Confirmed your stubs would compile.
+4. Implementing the Feature
+Step 4 & 5: Implement the real logic for your chosen feature (startGame + “Play Again”).
+I gave you corrected Game.cpp logic using a loop instead of recursion for Play Again.
+We tested it interactively with guesses (Too low / Too high / Correct).
+Step 6: Build and manually test your feature — confirmed with CMake and g++.
+5. Automated Testing
+Step 7: Fill in tests/test_main.cpp with real test cases.
+You showed outputs:
+Basic test PASSED
+Edge test PASSED
+Boundary test PASSED
+Verified all tests pass with ctest.
+6. Git Workflow / Pull Request
+Steps 12–16: Commit changes, push branch, open PR, approve, and merge.
+You:
+Removed build/ and added .gitignore
+Pushed your branch
+Created the PR for Play Again
+Approved it
+Discussed Squash and merge vs merge commit
+Successfully merged the PR
+7. Final Testing
+After merging, you ran:
+g++ src/Game.cpp src/main.cpp -o program
+./program
+Verified the game logic works: guesses, feedback, and Play Again prompt.
+Fixed the “Too low / Too high / Correct” inconsistency by updating Game.cpp with the while-loop version.
+✅ Key Takeaways
+You completed feature branch setup, stubs, implementation, manual testing, automated tests, and PR workflow.
+Your code compiles, runs, and the Play Again feature works correctly.
+Your GitHub repo is ready to submit

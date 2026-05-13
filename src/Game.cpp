@@ -5,51 +5,65 @@
 
 using namespace std;
 
-// Constructor
 Game::Game() {
     tries = 0;
 }
 
-// Main game function
 void Game::startGame() {
-    srand(time(0)); // set random seed
-    secretNumber = rand() % 100 + 1; // number 1–100
-    tries = 0;
+    srand(time(0));
 
-    int guess;
+    char playAgain = 'y';
 
-    cout << "Welcome to the Number Guessing Game!" << endl;
-    cout << "Guess a number between 1 and 100:" << endl;
+    while (playAgain == 'y' || playAgain == 'Y') {
 
-    while (true) {
-        cin >> guess;
-        tries++;
+        string playerName;
+        cout << "Enter your name: ";
+        cin >> playerName;
 
-        if (guess > secretNumber) {
-            cout << "Too high!" << endl;
-        }
-        else if (guess < secretNumber) {
-            cout << "Too low!" << endl;
-        }
-        else {
-            cout << "Correct! You guessed it in " << tries << " tries." << endl;
+        // Peer suggestion: use rand() for random number (already correct)
+        secretNumber = rand() % 100 + 1;
+        tries = 0;
 
-            char choice;
-            cout << "Do you want to play again? (y/n): ";
-            cin >> choice;
+        int guess = 0;
 
-            if (choice == 'y' || choice == 'Y') {
-                startGame(); // restart game
-            } else {
-                cout << "Thanks for playing!" << endl;
+        cout << "Welcome to the Number Guessing Game!" << endl;
+        cout << "Guess a number between 1 and 100:" << endl;
+
+        while (guess != secretNumber) {
+
+            cin >> guess;
+
+            // Fix for "infinite loop feeling" (input validation)
+            if (cin.fail()) {
+                cin.clear();
+                cin.ignore(1000, '\n');
+                cout << "Invalid input. Please enter a number." << endl;
+                continue;
             }
 
-            break;
+            tries++;
+
+            if (guess > secretNumber) {
+                cout << "Too high!" << endl;
+            }
+            else if (guess < secretNumber) {
+                cout << "Too low!" << endl;
+            }
+            else {
+                cout << "Correct! You guessed it in " << tries << " tries." << endl;
+
+                // Leaderboard update (required feature integration)
+                leaderboard.updatePlayerScore(playerName, tries);
+            }
         }
+
+        cout << "Do you want to play again? (y/n): ";
+        cin >> playAgain;
     }
+
+    cout << "Thanks for playing!" << endl;
+
+    // Show leaderboard at end
+    cout << "\nFinal Leaderboard:\n";
+    leaderboard.display();
 }
-
-
-
-
-

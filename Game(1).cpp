@@ -12,7 +12,7 @@ void Game::generateNumber() {
     secretNumber = rand() % 100 + 1;
 }
 void Game:: startGame() {
-    strand(time(0)); //Start the random number generator
+    srand(time(0)); //Start the random number generator
     generateNumber(); // Generating a brand new secret number
 
     int guess;
