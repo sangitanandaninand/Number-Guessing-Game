@@ -1,0 +1,222 @@
+ChatGPT Session Summary — CIS 25 Final Project
+Beginning of the Session
+
+You started by explaining that you had already completed earlier parts of your Number Guessing Game assignment, but now needed help with the Final Project submission for CIS 25.
+
+You shared:
+
+Your existing C++ files (Player.h, Player.cpp, Leaderboard.cpp, Game.cpp, Game.h)
+Your teacher’s final project instructions
+Your original project planning document
+
+We talked about:
+
+What files you needed
+Where .cpp and .h files belong
+How the project structure should look
+What “Done,” “Stubbed,” “Missing,” and “Cut” meant
+Part 1 — Planning Remaining Work
+
+We reviewed your original project plan and compared it to your current code.
+
+Features Already Done
+
+You already had:
+
+Random number generation
+Guess checking
+Guess counter
+Play again loop
+Features Still Missing or Planned
+
+You wanted to add:
+
+Hint system
+Better leaderboard system
+Custom maximum number feature (possibly later)
+
+We created:
+
+docs/final_reflection.md
+
+Then we worked on writing your reflection sections in simple student-level language:
+
+Plan vs Reality
+Design Decisions
+What You Learned
+What’s Left to Finish
+Workflow Reflection
+AI Use
+
+You also asked whether AI use was required, and we confirmed your teacher wanted:
+
+A reflection paragraph about AI
+Documentation of AI sessions
+Part 2 — Implementing Features
+Git Workflow Discussion
+
+You asked about:
+
+Feature branches
+Git commands
+Pull requests
+
+You had Git errors when switching branches because files were uncommitted.
+
+We fixed that by:
+
+git add .
+git commit -m "Save work before creating new feature branch"
+
+Then you:
+
+Switched back to main
+Pulled from GitHub
+Created:
+feature/hint-system
+Hint System Development
+
+You wanted your peers’ suggestion to include:
+
+rand()
+
+We worked through several versions of Game.cpp.
+
+You updated:
+
+Game.h
+
+to include:
+
+int hintsUsed;
+void giveHint();
+
+Then you implemented:
+
+Hint requests using -1
+Even/odd hints
+Upper/lower half hints
+Hint usage counting as tries
+Input validation
+
+We repeatedly checked:
+
+Whether Game.cpp matched Game.h
+Whether methods were implemented correctly
+Whether the game loop logic made sense
+
+You also asked how to prompt GitHub Copilot/GitHub Assistant to help generate code.
+
+Leaderboard Development
+
+You originally had a vector-based leaderboard.
+
+Later, you replaced it with a cleaner header-only version using:
+
+std::map<std::string, int>
+
+We discussed:
+
+Updating scores only if lower
+Displaying leaderboard entries
+Whether you still needed:
+Leaderboard.cpp
+
+We determined:
+
+You DO NOT need Leaderboard.cpp
+Your leaderboard is header-only
+All methods are already implemented inside Leaderboard.h
+Main Program
+
+You updated:
+
+main.cpp
+
+to:
+
+Print welcome messages
+Explain the hint system
+Start the game
+Show the leaderboard
+
+We checked whether anything else needed fixing.
+
+Part 3 — Integration & README
+
+We then moved to integration steps.
+
+We discussed running:
+
+rm -rf build
+cmake -S . -B build
+cmake --build build
+ctest --test-dir build --output-on-failure
+./build/NumberGuessingGame
+
+You asked:
+
+Whether clearing terminal was necessary
+What Step 3 meant
+What still needed testing
+
+We clarified:
+
+Clearing terminal is optional
+The important part is that the project:
+Builds successfully
+Runs correctly
+Passes tests
+Final Project Structure
+
+We finalized your project structure:
+
+Number-Guessing-Game/
+├─ docs/
+│  ├─ ai_collaboration.md
+│  ├─ final_reflection.md
+├─ src/
+│  ├─ Game.h
+│  ├─ Game.cpp
+│  ├─ Leaderboard.h
+│  └─ main.cpp
+├─ README.md
+└─ CMakeLists.txt
+Important Things You Learned During the Session
+Technical
+
+You learned:
+
+rand() and srand(time(nullptr))
+Input validation using:
+cin.clear();
+cin.ignore();
+How header-only classes work
+How to use std::map
+Game loop structure
+Design
+
+You learned:
+
+Separating responsibilities between classes
+Why Game, Leaderboard, and Player should each have different jobs
+Why large functions may need splitting later
+Process
+
+You learned:
+
+Git feature branches
+Commits
+Pull requests
+Self-review workflow
+Incremental testing
+Final State of the Project
+
+By the end of the conversation, you had:
+
+Added a working hint system
+Integrated leaderboard support
+Updated game logic
+Organized your project structure
+Written most of your final reflection
+Created AI documentation

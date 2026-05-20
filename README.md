@@ -1,33 +1,30 @@
 # Number-Guessing-Game
-Number Guessing Game is a game where the program will randomly choose a secret number in a range between 1-30.
+
+Number Guessing Game is a fun interactive game where the program randomly chooses a secret number within a range, and the player tries to guess it. The game includes hints, a leaderboard to track best scores, and the option to play again.
+
+---
 
 ## Features
-- The player will enter a guess of any number, and then the program might say if each guess is either too high or too low.
-- It will count how many guessses the player will make and how much the total at the end it will be.
-- After the game ends, it will tell whether the player wants to play again or with a new number. 
-- The program will show the player's best score, like the lowest number of guesses they used to win. 
 
-# ## Build
-Using these comands through terminal
+- **Random Number Guessing** – The program selects a random number for each game.
+- **Player Guesses** – Enter guesses and receive feedback: Too high, Too low, or Correct.
+- **Guess Counter** – Counts how many guesses the player uses.
+- **Play Again** – Option to play a new game after winning.
+- **Hint System** – Enter `-1` to get a hint (costs one guess):
+  - Tells if the number is even/odd.
+  - Tells if the number is in the lower or upper half of the range.
+- **Leaderboard** – Tracks the best score (fewest guesses) for each player.
+- **Custom Maximum Number** – (Planned / Missing in current build)
 
+---
+
+## Build
+
+Run the following commands in terminal:
+
+```bash
 cmake -S . -B build
 cmake --build build
 
 
-## Running
-
-./build/guess_game
-
-
-## Running Tests
-
-Files names:
-- main.cpp -> begins the program
-- Game.cpp -> keeps control on how the game works.
-- Game.h -> class declarations
-
-
-## Author
-
-sangitanandaninand - CIS 25 Final Project
 
